@@ -1,0 +1,32 @@
+name: Commit every day at 7:12 PM
+
+on:
+  schedule:
+    - cron: '12 19 * * *'
+  workflow_dispatch:
+
+
+jobs:
+  scrape-imdb-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: 22f3000123@ds.study.iitm.ac.in
+        run: | # python
+          uv run --with requests python main.py
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add *.json
+          git commit -m "Update IMDb Top 250 data every day" || exit 0
+          git push:
