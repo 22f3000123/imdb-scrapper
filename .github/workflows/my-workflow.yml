@@ -3,7 +3,6 @@ name: Commit every day at 7:12 PM
 on:
   schedule:
     - cron: '12 19 * * *'
-  workflow_dispatch:
 
 
 jobs:
@@ -27,6 +26,6 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add *.json
+          git add *.html
           git commit -m "Update IMDb Top 250 data every day" || exit 0
           git push:
