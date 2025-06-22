@@ -3,6 +3,7 @@ name: Commit every day at 7:12 PM
 on:
   schedule:
     - cron: '12 19 * * *'
+  workflow_run:
 
 
 jobs:
