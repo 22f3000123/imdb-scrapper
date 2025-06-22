@@ -30,4 +30,4 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add *.html
           git commit -m "Update IMDb Top 250 data every day" || exit 0
-          git push:
+          git push
